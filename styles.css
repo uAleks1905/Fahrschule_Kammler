@@ -59,16 +59,9 @@ img {
 
 /* Checkered Flag Pattern */
 .checkered-line {
-    height: 10px;
+    height: 30px;
     width: 100%;
-    background-image: linear-gradient(45deg, 
-        var(--primary-color) 25%, 
-        white 25%, 
-        white 50%, 
-        var(--primary-color) 50%, 
-        var(--primary-color) 75%, 
-        white 75%, 
-        white);
+    background-image: repeating-conic-gradient(black 0% 25%, white 0% 50%);
     background-size: 20px 20px;
     margin: 15px 0;
 }
@@ -89,6 +82,10 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
+}
+
+.logo a {
+    text-decoration: none;
 }
 
 .logo h1 {
@@ -122,29 +119,66 @@ img {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1600x900/?driving-school') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
     height: 100vh;
     color: #fff;
     display: flex;
     align-items: center;
     text-align: center;
     margin-top: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(227, 6, 19, 0.1) 50px, rgba(227, 6, 19, 0.1) 52px);
+    z-index: -1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-image: repeating-conic-gradient(black 0% 25%, white 0% 50%);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    z-index: -1;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border: 1px solid rgba(227, 6, 19, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .hero-content h1 {
     font-size: 48px;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
     font-size: 20px;
     margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Section Styles */
@@ -194,6 +228,14 @@ img {
 .image-box {
     flex: 1;
     min-height: 300px;
+}
+
+.section-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
 .placeholder-image {
@@ -403,9 +445,27 @@ img {
     .content-box {
         flex-direction: column;
     }
+    
+    .image-box {
+        width: 100%;
+        min-height: 200px;
+    }
+    
+    .section-image {
+        height: 200px;
+    }
+    
+    .placeholder-image {
+        height: 200px;
+        width: 100%;
+    }
 
     .section-header h2 {
         font-size: 28px;
+    }
+    
+    .contact-container {
+        flex-direction: column;
     }
 }
 
@@ -421,15 +481,8 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 10px;
-    background-image: linear-gradient(45deg, 
-        var(--primary-color) 25%, 
-        white 25%, 
-        white 50%, 
-        var(--primary-color) 50%, 
-        var(--primary-color) 75%, 
-        white 75%, 
-        white);
+    height: 30px;
+    background-image: repeating-conic-gradient(black 0% 25%, white 0% 50%);
     background-size: 20px 20px;
 }
 
@@ -439,14 +492,7 @@ img {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 10px;
-    background-image: linear-gradient(45deg, 
-        var(--primary-color) 25%, 
-        white 25%, 
-        white 50%, 
-        var(--primary-color) 50%, 
-        var(--primary-color) 75%, 
-        white 75%, 
-        white);
+    height: 30px;
+    background-image: repeating-conic-gradient(black 0% 25%, white 0% 50%);
     background-size: 20px 20px;
 }
