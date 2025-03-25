@@ -121,16 +121,20 @@ img {
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
     height: 100vh;
-    color: #fff;
     display: flex;
     align-items: center;
+    color: white;
     text-align: center;
-    margin-top: 70px;
     position: relative;
     overflow: hidden;
+    margin-top: 70px;
 }
 
 .hero::before {
+    content: none;
+}
+
+.hero::after {
     content: '';
     position: absolute;
     top: 0;
@@ -140,19 +144,6 @@ img {
     background-image: 
         linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
         repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(227, 6, 19, 0.1) 50px, rgba(227, 6, 19, 0.1) 52px);
-    z-index: -1;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-image: repeating-conic-gradient(black 0% 25%, white 0% 50%);
-    background-size: 20px 20px;
-    opacity: 0.5;
     z-index: -1;
 }
 
@@ -185,6 +176,10 @@ img {
 .section {
     padding: 80px 0;
     position: relative;
+}
+
+.section:nth-child(odd) {
+    background-color: #f4f4f4;
 }
 
 .section::before {
@@ -487,37 +482,4 @@ img {
     .contact-container {
         flex-direction: column;
     }
-}
-
-/* Checkered Flag Background for Sections */
-.section {
-    position: relative;
-}
-
-.section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    background-image: repeating-conic-gradient(black 0% 25%, white 0% 50%);
-    background-size: 20px 20px;
-    z-index: 1;
-}
-
-/* Remove checkered pattern from hero section */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
-        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(227, 6, 19, 0.1) 50px, rgba(227, 6, 19, 0.1) 52px);
-    z-index: -1;
-    height: auto;
-    background-size: auto;
 }
